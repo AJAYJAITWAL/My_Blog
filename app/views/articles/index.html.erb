@@ -1,0 +1,24 @@
+<body style="background: #f2f2f2">
+  
+<h1 style="color: #6699ff;"><b>My Awesome Blog 4 U</b></h1>
+
+<div id = 'new_article'>
+ <%= link_to 'New Article', new_article_path, remote: true, :class => 'navbar-link button btn btn-outline-success' %>
+</div>
+<br>
+
+ <div id="articles">
+    <% @articles.each do |article| %>
+      
+      <%= render partial: 'article', locals:{article: article} %>
+    
+    <% end %>
+ </div>
+ 
+<%= will_paginate @articles, render: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</body>
+<!-- <footer class="footer">
+      <div class="container" style="background: Black;">
+        <span class="text-center" style="color: white"><b>This is a  Awesome blog only 4 U</b></span>
+      </div>
+    </footer> -->

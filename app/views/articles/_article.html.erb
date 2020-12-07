@@ -1,0 +1,32 @@
+<div id="delete_<%= article.id %>" style="background:#ccffff; border-radius: 25px; ">
+
+  <div class="container hov"><br>
+    <div style="color: #009999;"><h5><b><%= article.title %></b></h5></div>
+    <%#= truncate post.content, length: 160 %>
+     
+
+    <p><%= truncate article.text, length: 200 %><span><%= link_to 'Read more', article %></span></p>
+    <!-- <span><%#= link_to 'read more', article %></span> -->
+    <%= link_to 'Show', article_path(article),:class => "button btn btn-outline-primary btn-xs", :id => 'show_article' %>
+
+   <!-- 
+    <%#= link_to 'Edit', edit_article_path(article), :class=> "btn btn-outline-info btn-xs", :id => 'edit_article' %>
+ 
+    <%#= link_to 'Destroy', article_path(article),
+        remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class:"delete",:class => "button btn btn-outline-warning btn-xs"%>
+ -->
+    
+   <% if current_user.has_role?(:user) && article.user.id == current_user.id %>
+    
+     <%= link_to 'Edit', edit_article_path(article), :class=> "btn btn-outline-info btn-xs", :id => 'edit_article' %>
+ 
+    <%= link_to 'Destroy', article_path(article),
+        remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class:"delete",:class => "button btn btn-outline-warning btn-xs"%>
+   <% end %>
+
+
+
+
+  </div><br>
+</div>
+<br>

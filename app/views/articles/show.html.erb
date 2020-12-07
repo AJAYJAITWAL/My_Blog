@@ -1,0 +1,41 @@
+ 
+<p>
+  <h4><strong style="color:#00aaff;">Title:</strong></h4>
+  <%= @article.title %>
+</p>
+ 
+<p>
+  <h4><strong style="color:#00aaff;">Text:</strong></h4>
+  <%= @article.text %>
+</p>
+ 
+ 
+<!-- <p>
+ <strong>Images:</strong>
+ <#% @article.images.each do |image| %>
+   <%#= image_tag image ,size: "300x250"%>
+
+    
+ <% #end %>
+</p -->
+
+<h2 style="color:#006680;"><b>Comments</b></h2>
+<%= render @article.comments %>
+ 
+<h2 style="color:#007a99;">Add a comment:</h2>
+<%= render 'comments/form' %>
+  
+  <% if current_user.has_role?(:user) && @article.user.id == current_user.id %>
+    <!-- <div id="edit_article"> -->
+ 
+    <td><%= link_to 'Edit', edit_article_path(@article), remote: true,:class => "button btn btn-primary btn-xs", :id => 'edit_article' %></td>
+  <% end %>
+  
+  <span>
+  <%= link_to 'Back', articles_path, :class => "button btn btn-info btn-xs" %>
+  </span>
+  <br>
+    <!-- </div>  -->
+    
+
+
