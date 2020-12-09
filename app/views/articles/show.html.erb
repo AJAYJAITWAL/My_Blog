@@ -25,6 +25,9 @@
 <h2 style="color:#007a99;">Add a comment:</h2>
 <%= render 'comments/form' %>
   
+  <%#= button_to 'Like', article_likes_path(@article), method: :post %>
+  <!-- <p><%#= @article.likes.count %> <%#= (@article.likes.count) == 1 ? 'Like' : 'Likes'%></p> -->
+<br>
   <% if current_user.has_role?(:user) && @article.user.id == current_user.id %>
     <!-- <div id="edit_article"> -->
  

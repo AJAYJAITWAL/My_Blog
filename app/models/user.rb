@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  
+  has_many :likes, dependent: :destroy
   has_many :articles
   rolify
   # Include default devise modules. Others available are:
